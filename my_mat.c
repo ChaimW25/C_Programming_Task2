@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <math.h>
 #include "my_mat.h"
 
@@ -12,14 +13,15 @@ int min(int a, int b){
 }
 
 void function1(){
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 10; i++)
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 10; j++)
         {
         scanf("%d",&A[i][j]);
         }
     }
     FloydWarshall();
+    
 }
 void function2(int i, int j){
 if(A[i][j]!=0){
@@ -38,13 +40,13 @@ if(A[i][j]!=0){
     }    
 }
 void FloydWarshall(){
-    for (int  k = 0; k < 4; k++)
+    for (int  k = 0; k < 10; k++)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 10; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < 10; j++)
             {
-                if(i==j){
+                if(i==j||j==k||i==k){
                     continue;
                 }
                 else if(A[i][k]==0||A[k][j]==0){ //infinity
